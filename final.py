@@ -24,7 +24,7 @@ from luma.core.legacy.font import proportional, CP437_FONT, TINY_FONT, SINCLAIR_
 led =[29,31,33,35,38] #Pins led
 interrupt=22          #Button_pin für Tkinter
 b= 12                 #Buzzer Pin
-relay_pin = 10        #relay Pin
+relay_pin = 40        #relay Pin
 motion_pin = 16       #Pin des Bewegungssensors 
 servoPin = 37         #Servo Pin
 DHT11_pin= 7          #DHT11 Pin
@@ -273,6 +273,7 @@ def on_open_msg():
 
 #--------------------------------Funktion Zur Nutzung des Bewegungsensors----------------------------------------------------------------------------------
 def motion():
+        GPIO.setup(interrupt, GPIO.IN, pull_up_down=GPIO.PUD_UP)
         client.publish("fhdo/itp/gp1/12",'wait')
         while GPIO.input(interrupt)==GPIO.HIGH :             
             if(GPIO.input(motion_pin) == 1):   # Wenn der Sensor Input = 1 ist
