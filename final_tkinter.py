@@ -83,8 +83,8 @@ def btn_closed_click():
 #----Ausführende Funktion , wenn man auf MANUELLE klickt ----------------       
 
 def btn_press_click():
-    messagebox.askquestion("Manuelle Steurerung", "Wollen Sie wirklich die manuelle Steuerung aktivieren?")
-    if 'yes':
+    result= messagebox.askquestion("Manuelle Steurerung", "Wollen Sie wirklich die manuelle Steuerung aktivieren?")
+    if result=='yes':
         client.publish(topics[0], 'press')
         Nachricht="Manuelle Steuerung aktiviert!..."
         Fact.set(Nachricht)
