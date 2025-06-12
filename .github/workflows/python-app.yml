@@ -25,7 +25,8 @@ jobs:
           sudo apt-get install -y python3-tk xvfb
           python -m pip install --upgrade pip
           # Add any required pip packages below
-          # pip install numpy pillow
+          pip install numpy pillow
+          pip install paho-mqtt tkinter
 
       - name: Run Tkinter script
         run: |
